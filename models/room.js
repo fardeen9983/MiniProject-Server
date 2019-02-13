@@ -14,15 +14,16 @@ const RoomSchema = new mongoose.Schema({
         sat: [],
         sun: []
     },
+
     status: {
-        presence: boolean,
+        presence: Boolean,
         current: Number,
-        inUse: boolean,
-        switch: boolean
+        inUse: Boolean,
+        switch: Boolean
     },
     history: {
         _: {
-
+            wattage: Number
         },
         month: [{
             index: Number,
@@ -33,7 +34,7 @@ const RoomSchema = new mongoose.Schema({
 
 })
 
-var RoomModel = mongoose.model("Room",RoomSchema)
+var RoomModel = mongoose.model("Room", RoomSchema)
 module.exports = {
     RoomSchema, RoomModel
 }

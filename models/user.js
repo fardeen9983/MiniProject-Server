@@ -2,6 +2,8 @@ const mongoose = require("mongoose")
 const bcrypt = require('bcryptjs')
 const uniqueValidator = require('mongoose-unique-validator')
 
+const {RoomSchema} = require('./room')
+
 const UserSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -20,7 +22,13 @@ const UserSchema = new mongoose.Schema({
         minLength: 8
     },
     device: {
-        type: Array
+        type: [String]
+    },
+    block: {
+        type: [{
+            id: String,
+            room : [RoomSchema]
+        }]
     },
     phone: {
         type: Number,
