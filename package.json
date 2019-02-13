@@ -1,0 +1,26 @@
+{
+  "name": "miniproject-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fardeen9983/MiniProject-Server.git"
+  },
+  "author": "Fardeen Khan | Het Saliya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fardeen9983/MiniProject-Server/issues"
+  },
+  "homepage": "https://github.com/fardeen9983/MiniProject-Server#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.11",
+    "mongoose-unique-validator": "^2.0.2"
+  }
+}
