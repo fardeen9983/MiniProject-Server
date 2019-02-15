@@ -1,5 +1,5 @@
 const secrets = {
-    dbUri: process.env.DB_URI || 'mongodb://localhost:27017/TodoApp',
+    dbUri: 'mongodb://localhost:27017/TodoApp',
   };
   
   const getSecret = (key) => secrets[key];

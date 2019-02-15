@@ -8,7 +8,7 @@ const User = require('./models/user')
 
 app = express()
 const router = express.Router()
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(bodyParser.json())
 app.use('/api/users',userRoutes)

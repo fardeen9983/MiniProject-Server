@@ -12,15 +12,21 @@ const isEmail = (email) => {
 
 router.get("/register", async (req, res) => {
     try {
-        const { email, phone, password, name } = req.body;
-            // if (!isEmail(email)) {
-            //     throw new Error("Invalid email address")
-            // }
+        // const { email, phone, password, name } = req.body;
+
+        let email = req.param('email');
+        let password = req.param('password');
+        let name = req.param('name');
+        let phone = req.param('phone');
+
+        // if (!isEmail(email)) {
+        //     throw new Error("Invalid email address")
+        // }
         // if (typeof password !== String || typeof name !== String ) {
         //     throw new Error("Invalid details")
         // }
-        const user = User({ email: email, name: name, password: password, phone: phone })
-        const persistedUser = user.save()
+        const user = User({email, name, password,phone })
+        const persistedUser = await user.save()
         res.status(201).json({
             title: 'User Registration Successful',
             detail: 'Successfully registered new user',
@@ -31,6 +37,28 @@ router.get("/register", async (req, res) => {
                 title: 'Registration Error',
                 detail: 'Something went wrong during registration process.',
                 errorMessage: e.message,
+            }
+        })
+    }
+})
+
+router.get("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email })
+        if(!user){
+            throw new Error()
+        }
+        res.json({
+            title: 'Login Successful',
+            detail: 'Successfully validated user credentials',
+          });
+    } catch (e) {
+        res.status(400).json({
+            errors: {
+                title: 'Registration Error',
+                detail: 'Something went wrong during registration process.',
+                errorMessage: e.message
             }
         })
     }
